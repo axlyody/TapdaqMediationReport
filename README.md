@@ -4,9 +4,13 @@ Tapdaq Mediation Report is an app to monitor and control your revenue from your 
 
 ![alt text](https://github.com/axlyody/TapdaqMediationReport/raw/master/app/src/main/res/mipmap-xxhdpi/ic_launcher.png "Logo")
 
-# Screenshots
+Screenshots
+-----------
+<img src="https://github.com/axlyody/TapdaqMediationReport/raw/master/image/img1.png" width="300px"> <img src="https://github.com/axlyody/TapdaqMediationReport/raw/master/image/img2.png" width="300px">
 
- <img src="https://github.com/axlyody/TapdaqMediationReport/raw/master/image/img1.png" width="300px"> <img src="https://github.com/axlyody/TapdaqMediationReport/raw/master/image/img2.png" width="300px">
+Google Play Store
+-----------------
+Coming Soon
 
 License
 -------
