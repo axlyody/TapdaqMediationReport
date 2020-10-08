@@ -1,0 +1,39 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/google_sans</item>
+
+        <item name="android:statusBarColor">#2b333e</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+
+        <item name="toolbarStyle">@style/Layout.ToolbarStyle</item>
+        <item name="appBarLayoutStyle">@style/Layout.AppBarStyle</item>
+        <item name="textInputStyle">@style/Layout.TextInputStyle</item>
+
+    </style>
+
+    <style name="Layout.TextInputStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">@android:color/white</item>
+        <item name="android:textColorHint">@android:color/white</item>
+    </style>
+
+    <style name="Layout.ToolbarStyle" parent="Widget.MaterialComponents.Toolbar.Surface">
+        <item name="elevation">0dp</item>
+        <item name="colorControlNormal">@android:color/white</item>
+        <item name="titleTextColor">@android:color/white</item>
+        <item name="backgroundTint">@color/colorPrimary</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:elevation">0dp</item>
+
+    </style>
+
+    <style name="Layout.AppBarStyle" parent="Widget.MaterialComponents.AppBarLayout.PrimarySurface">
+        <item name="elevation">0dp</item>
+        <item name="android:elevation">0dp</item>
+    </style>
+
+</resources>
