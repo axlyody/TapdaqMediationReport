@@ -9,9 +9,8 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
-fun String.getMonthFromDate(): String {
-    val before = SimpleDateFormat("y-m-d", Locale.ENGLISH).parse(this)
-    return SimpleDateFormat("m", Locale("ID")).format(before!!)
+fun Activity.start(clazz: Class<*>) {
+    startActivity(Intent(this, clazz))
 }
 
 fun String.getDayFromDate(): String {
@@ -48,8 +47,4 @@ fun getResColor(context: Context, colorId: Int): Int {
             }
     }
     return color
-}
-
-fun Activity.start(clazz: Class<*>) {
-    startActivity(Intent(this, clazz))
 }
