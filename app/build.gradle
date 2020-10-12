@@ -12,9 +12,6 @@ allprojects {
         maven {
             url 'https://jitpack.io'
         }
-        //Tapdaq SDK and Adapters
-        maven { url "http://android-sdk.tapdaq.com" }
-
         flatDir {
             dirs 'libs'
         }
@@ -29,7 +26,7 @@ android {
         applicationId "id.axlyody.tapdaqmediationreport"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 1
+        versionCode 101101220
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -78,9 +75,11 @@ dependencies {
     //other
     implementation 'com.jakewharton.timber:timber:4.7.1'
     implementation 'com.github.hadiidbouk:ChartProgressBar-Android:2.0.6'
-    implementation 'io.github.manneohlund:smart-recycler-adapter:4.1.0'
+    implementation 'io.github.manneohlund:smart-recycler-adapter:5.0.0-beta04'
     implementation 'com.github.HITGIF:TextFieldBoxes:1.4.5'
 
-    implementation 'com.google.firebase:firebase-analytics:17.6.0'
-    implementation 'com.google.firebase:firebase-crashlytics:17.2.2'
+    //firebase
+    implementation platform('com.google.firebase:firebase-bom:25.12.0')
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
 }
