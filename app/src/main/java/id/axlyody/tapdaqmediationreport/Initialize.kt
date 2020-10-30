@@ -1,3 +1,9 @@
+/*
+ * Initialize.kt
+ * Copyright 2020 Axl Yody <axlyod@gmail.com>
+ *
+ */
+
 package id.axlyody.tapdaqmediationreport
 
 import android.app.Application

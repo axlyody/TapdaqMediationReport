@@ -1,261 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/refresh_data"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:paddingBottom="?attr/actionBarSize"
+        app:defaultNavHost="true" />
 
-        <RelativeLayout
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/home_bottom_navbutton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:id="@+id/ll_summary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:baselineAligned="false"
-                android:paddingStart="16dp"
-                android:paddingTop="30dp"
-                android:paddingEnd="16dp"
-                android:paddingBottom="30dp">
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tv_today_revenue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:text="@string/home_today"
-                        android:textSize="18sp"
-                        app:fontFamily="sans-serif-smallcaps" />
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tv_today_today"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/tv_today_revenue"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="12dp"
-                        android:text="-"
-                        android:textColor="@android:color/white"
-                        android:textSize="30sp"
-                        android:textStyle="bold" />
-                </RelativeLayout>
+            android:layout_height="wrap_content"
+            app:itemIconTint="@color/bottom_nav_selector"
+            app:itemTextColor="@color/bottom_nav_selector"
+            app:menu="@menu/home_bottom_nav" />
+    </RelativeLayout>
 
 
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tv_week_revenue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:text="@string/home_last_7_days"
-                        android:textSize="18sp"
-                        app:fontFamily="sans-serif-smallcaps" />
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tv_revenue_week"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/tv_week_revenue"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="12dp"
-                        android:text="-"
-                        android:textColor="@android:color/white"
-                        android:textSize="30sp"
-                        android:textStyle="bold" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tv_month_revenue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:text="@string/home_last_30_days"
-                        android:textSize="18sp"
-                        app:fontFamily="sans-serif-smallcaps" />
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tv_revenue_month"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/tv_month_revenue"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="12dp"
-                        android:text="-"
-                        android:textColor="@android:color/white"
-                        android:textSize="30sp"
-                        android:textStyle="bold" />
-                </RelativeLayout>
-
-
-            </LinearLayout>
-
-
-            <RelativeLayout
-                android:id="@+id/rv_daily_revenue"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/ll_summary"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tx_chart_daily"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:text="@string/home_revenue_last_7_days"
-                    app:fontFamily="sans-serif-smallcaps" />
-
-                <com.hadiidbouk.charts.ChartProgressBar
-                    android:id="@+id/cp_daily_revenue"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tx_chart_daily"
-                    android:layout_centerInParent="true"
-                    android:minHeight="180dp"
-                    android:padding="16dp"
-                    app:hdBarCanBeClick="true"
-                    app:hdBarHeight="90dp"
-                    app:hdBarRadius="10dp"
-                    app:hdBarTitleColor="@android:color/white"
-                    app:hdBarTitleMarginTop="8dp"
-                    app:hdBarTitleSelectedColor="@android:color/white"
-                    app:hdBarTitleTxtSize="12sp"
-                    app:hdBarWidth="10dp"
-                    app:hdEmptyColor="@android:color/transparent"
-                    app:hdPinBackgroundColor="@color/pin_background"
-                    app:hdPinDrawable="@drawable/ic_pin"
-                    app:hdPinMarginBottom="55dp"
-                    app:hdPinMarginEnd="27dp"
-                    app:hdPinMarginTop="10dp"
-                    app:hdPinPaddingBottom="5dp"
-                    app:hdPinTextColor="@android:color/white"
-                    app:hdPinTxtSize="14sp"
-                    app:hdProgressClickColor="@color/progress_click"
-                    app:hdProgressColor="@color/progress"
-                    app:hdProgressDisableColor="@color/progress_disable" />
-            </RelativeLayout>
-
-
-            <RelativeLayout
-                android:id="@+id/rv_monthly_revenue"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/rv_daily_revenue"
-                android:orientation="horizontal"
-                android:visibility="gone">
-
-                <TextView
-                    android:id="@+id/tx_chart_monthly"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:text="revenue (monthly)"
-                    app:fontFamily="sans-serif-smallcaps" />
-
-                <com.hadiidbouk.charts.ChartProgressBar
-                    android:id="@+id/cp_monthly_revenue"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tx_chart_monthly"
-                    android:layout_centerInParent="true"
-                    app:hdBarCanBeClick="true"
-                    app:hdBarHeight="130dp"
-                    app:hdBarRadius="10dp"
-                    app:hdBarTitleColor="@android:color/white"
-                    app:hdBarTitleMarginTop="8dp"
-                    app:hdBarTitleSelectedColor="@android:color/white"
-                    app:hdBarTitleTxtSize="12sp"
-                    app:hdBarWidth="10dp"
-                    app:hdEmptyColor="@android:color/transparent"
-                    app:hdPinBackgroundColor="@color/pin_background"
-                    app:hdPinDrawable="@drawable/ic_c"
-                    app:hdPinMarginBottom="55dp"
-                    app:hdPinMarginEnd="27dp"
-                    app:hdPinMarginTop="10dp"
-                    app:hdPinPaddingBottom="5dp"
-                    app:hdPinTextColor="@android:color/white"
-                    app:hdPinTxtSize="14sp"
-                    app:hdProgressClickColor="@color/progress_click"
-                    app:hdProgressColor="@color/progress"
-                    app:hdProgressDisableColor="@color/progress_disable" />
-            </RelativeLayout>
-
-
-            <RelativeLayout
-                android:id="@+id/rl_networks"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/rv_daily_revenue"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tx_networks"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:text="@string/home_networks"
-                    app:fontFamily="sans-serif-smallcaps" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_networks"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tx_networks"
-                    android:overScrollMode="never" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/rl_networks"
-                android:layout_marginTop="30dp"
-                android:padding="16dp">
-
-                <Button
-                    android:id="@+id/bt_logout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:text="@string/home_logout"
-                    android:textColor="@android:color/white" />
-
-                <TextView
-                    android:id="@+id/tx_token"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/bt_logout"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="16dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tx_token"
-                    android:layout_centerHorizontal="true"
-                    android:text="made by axlyody" />
-            </RelativeLayout>
-
-        </RelativeLayout>
-    </ScrollView>
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

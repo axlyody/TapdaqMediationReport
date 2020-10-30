@@ -1,3 +1,9 @@
+/*
+ * Networks.kt
+ * Copyright 2020 Axl Yody <axlyod@gmail.com>
+ *
+ */
+
 package id.axlyody.tapdaqmediationreport.adapter
 
 import android.view.LayoutInflater
@@ -13,7 +19,7 @@ class NetworksViewHolder(parentView: ViewGroup) : SmartViewHolder<Networks>(
 ) {
     override fun bind(item: Networks) {
         itemView.apply {
-            tv_name.text = String.format("• \t %s", item.name)
+            tv_name.text = String.format("%s", item.name)
             tv_revenue.text = String.format("$%d", item.revenue)
         }
     }

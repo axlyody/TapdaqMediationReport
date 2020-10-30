@@ -1,3 +1,9 @@
+/*
+ * Apps.kt
+ * Copyright 2020 Axl Yody <axlyod@gmail.com>
+ *
+ */
+
 package id.axlyody.tapdaqmediationreport.`interface`.request
 
 import id.axlyody.tapdaqmediationreport.model.Apps

@@ -1,3 +1,9 @@
+/*
+ * Apps.kt
+ * Copyright 2020 Axl Yody <axlyod@gmail.com>
+ *
+ */
+
 package id.axlyody.tapdaqmediationreport.model
 
 import com.google.gson.annotations.Expose
@@ -27,7 +33,10 @@ data class Apps(
     val operatingSystem: String,
     @Expose
     @SerializedName("_storeMeta")
-    val _storeMeta: AppsMeta
+    val _storeMeta: AppsMeta,
+    @Expose
+    @SerializedName("sdk")
+    val sdk: AppsSDK? = null
 )
 
 data class AppsMeta(
@@ -49,4 +58,19 @@ data class AppsMeta(
     @Expose
     @SerializedName("sync_status_success")
     val sync_status_success: Boolean
+)
+
+data class AppsSDK(
+    @Expose
+    @SerializedName("id")
+    val id: Int,
+    @Expose
+    @SerializedName("versionMajor")
+    val versionMajor: Int,
+    @Expose
+    @SerializedName("versionMinor")
+    val versionMinor: Int,
+    @Expose
+    @SerializedName("versionPatch")
+    val versionPatch: Int
 )

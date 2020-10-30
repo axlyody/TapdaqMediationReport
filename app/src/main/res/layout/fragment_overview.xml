@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include
+                android:id="@+id/shimmer"
+                layout="@layout/fragment_overview_shimmer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible" />
+
+            <RelativeLayout
+                android:id="@+id/layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <View
+                    android:id="@+id/ll_summary"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="@color/colorPrimary"
+                    android:baselineAligned="false"
+                    android:paddingStart="16dp"
+                    android:paddingTop="30dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="30dp" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_today"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp">
+
+                    <TextView
+                        android:id="@+id/tv_today_revenue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/home_today"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_today_today"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_today_revenue"
+                        android:layout_marginTop="8dp"
+                        android:text="-"
+                        android:textColor="@android:color/white"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/summary_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ll_summary"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="-40dp"
+                    android:layout_marginRight="16dp"
+                    app:cardCornerRadius="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp">
+
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/tv_week_revenue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:text="@string/home_last_7_days"
+                                android:textSize="14sp" />
+
+
+                            <TextView
+                                android:id="@+id/tv_revenue_week"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tv_week_revenue"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="8dp"
+                                android:text="-"
+                                android:textColor="@android:color/white"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/cardview_dark_background" />
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/tv_month_revenue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:text="@string/home_last_30_days"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/tv_revenue_month"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tv_month_revenue"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="8dp"
+                                android:text="-"
+                                android:textColor="@android:color/white"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <RelativeLayout
+                    android:id="@+id/rv_daily_revenue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/summary_card"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tx_chart_daily"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:text="@string/home_revenue_last_7_days"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <com.hadiidbouk.charts.ChartProgressBar
+                        android:id="@+id/cp_daily_revenue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tx_chart_daily"
+                        android:layout_centerInParent="true"
+                        android:minHeight="180dp"
+                        android:padding="16dp"
+                        app:hdBarCanBeClick="true"
+                        app:hdBarHeight="90dp"
+                        app:hdBarRadius="10dp"
+                        app:hdBarTitleColor="@android:color/white"
+                        app:hdBarTitleMarginTop="8dp"
+                        app:hdBarTitleSelectedColor="@android:color/white"
+                        app:hdBarTitleTxtSize="12sp"
+                        app:hdBarWidth="10dp"
+                        app:hdEmptyColor="@android:color/transparent"
+                        app:hdPinBackgroundColor="@color/pin_background"
+                        app:hdPinDrawable="@drawable/ic_pin"
+                        app:hdPinMarginBottom="55dp"
+                        app:hdPinMarginEnd="27dp"
+                        app:hdPinMarginTop="10dp"
+                        app:hdPinPaddingBottom="5dp"
+                        app:hdPinTextColor="@android:color/white"
+                        app:hdPinTxtSize="14sp"
+                        app:hdProgressClickColor="@color/progress_click"
+                        app:hdProgressColor="@color/progress"
+                        app:hdProgressDisableColor="@color/progress_disable" />
+                </RelativeLayout>
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/separator1"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_below="@id/rv_daily_revenue" />
+
+
+                <RelativeLayout
+                    android:id="@+id/rl_networks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/separator1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tx_networks"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:text="@string/home_networks"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_networks"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tx_networks"
+                        android:clipToPadding="false"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

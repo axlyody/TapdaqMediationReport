@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="id.axlyody.tapdaqmediationreport.Initialize"
+        android:name=".Initialize"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="id.axlyody.tapdaqmediationreport.activity.Main"
+            android:name=".activity.Main"
             android:label="@string/main_tapdaq_mediation_report"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -23,8 +23,16 @@
         </activity>
 
         <activity
-            android:name="id.axlyody.tapdaqmediationreport.activity.Home"
+            android:name=".activity.Home"
             android:label="@string/home_my_revenue" />
+
+        <activity
+            android:name=".activity.About"
+            android:label="@string/about" />
+
+        <activity
+            android:name=".activity.License"
+            android:label="license" />
     </application>
 
 </manifest>

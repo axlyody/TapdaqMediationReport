@@ -1,3 +1,9 @@
+/*
+ * Mediation.kt
+ * Copyright 2020 Axl Yody <axlyod@gmail.com>
+ *
+ */
+
 package id.axlyody.tapdaqmediationreport.model
 
 import com.google.gson.annotations.Expose

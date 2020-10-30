@@ -11,10 +11,16 @@
 
 
     <string name="home_my_revenue">my revenue</string>
-    <string name="home_today">today</string>
+    <string name="home_today">today revenue</string>
     <string name="home_last_7_days">last 7 days</string>
     <string name="home_last_30_days">last 30 days</string>
     <string name="home_revenue_last_7_days">revenue last 7 days</string>
     <string name="home_networks">networks</string>
     <string name="home_logout">logout</string>
+
+    <string name="menu_about">about</string>
+    <string name="menu_logout">logout</string>
+
+
+    <string name="about">about</string>
 </resources>

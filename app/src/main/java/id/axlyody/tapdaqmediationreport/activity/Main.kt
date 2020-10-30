@@ -1,3 +1,9 @@
+/*
+ * Main.kt
+ * Copyright 2020 Axl Yody <axlyod@gmail.com>
+ *
+ */
+
 package id.axlyody.tapdaqmediationreport.activity
 
 import android.os.Bundle
@@ -5,7 +11,6 @@ import android.widget.Toast
 import id.axlyody.tapdaqmediationreport.AppActivity
 import id.axlyody.tapdaqmediationreport.R
 import id.axlyody.tapdaqmediationreport.model.Apps
-import id.axlyody.tapdaqmediationreport.service.Http
 import id.axlyody.tapdaqmediationreport.utils.start
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
@@ -46,7 +51,7 @@ class Main : AppActivity() {
             isEnabled = false
             text = getString(R.string.main_wait)
         }
-        Http(this, prefs).apps().enqueue(object : Callback<List<Apps>> {
+        api.apps().enqueue(object : Callback<List<Apps>> {
             override fun onResponse(call: Call<List<Apps>>, response: Response<List<Apps>>) {
                 when (response.code()) {
                     200 -> {

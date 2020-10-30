@@ -1,9 +1,19 @@
+/*
+ * Utils.kt
+ * Copyright 2020 Axl Yody <axlyod@gmail.com>
+ *
+ */
+
 package id.axlyody.tapdaqmediationreport.utils
 
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.util.TypedValue
+import android.widget.ImageView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import java.text.DateFormat
 import java.text.ParseException
 import java.text.SimpleDateFormat
@@ -48,3 +58,15 @@ fun getResColor(context: Context, colorId: Int): Int {
     }
     return color
 }
+
+fun ImageView.load(url: Any) {
+    try {
+        Glide.with(this)
+            .load(url)
+            .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+            .transition(DrawableTransitionOptions.withCrossFade())
+            .into(this)
+    } catch (e: Exception) {
+    }
+}
+
